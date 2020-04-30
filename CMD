@@ -1,29 +1,22 @@
 #!/bin/sh
-# GoCD Server Install
-
 echo "Fetching server install"
 fetch https://download.gocd.org/binaries/$go_version/generic/go-server-$go_version.zip -o /root/go-server.zip
-
 echo "Extracting server into '${gocd_home}/${gocd_server_folder}'"
 unzip -q -j -d $gocd_home/$gocd_server_folder /root/go-server.zip
-
 echo "Setting ownership on '${gocd_home}/${gocd_server_folder}'"
 chown -R $gocd_user_name:$gocd_group_name $gocd_home
-
 echo "Cleaning up '${gocd_server_folder}'"
 find $gocd_home/$gocd_server_folder/bin/*.bat -type f -exec rm {} \;
-oss="aix hpux linux macosx solaris windows"
-for os in $oss
-do
-    find $gocd_home/$gocd_server_folder/wrapper/*$os* -type f -exec rm {} \;
-done
-
+echo "Checking plugin folder"
 if [ ! -d $gocd_home/$gocd_server_folder/plugins/external/ ]; then
+    echo "Creating plugin folder"
     mkdir -p $gocd_home/$gocd_server_folder/plugins/external/
 fi
+echo "Copying plugins"
 cd $gocd_home/$gocd_server_folder/plugins/external/
 for plugin in $plugins
 do
     fetch $plugin -o $gocd_home/$gocd_server_folder/plugins/external/
 done
 cd -
+echo "Done"
