@@ -1,12 +1,14 @@
 #!/bin/sh
+if [ "${gocd_home}" == "" ]; then
+    echo "Cannot find required variables"
+    exit
+fi
 echo "Fetching server install"
-fetch https://download.gocd.org/binaries/$go_version/generic/go-server-$go_version.zip -o /root/go-server.zip
+fetch https://download.gocd.org/binaries/$gocd_version/generic/go-server-$gocd_version.zip -o /root/go-server.zip
 echo "Extracting server into '${gocd_home}/${gocd_server_folder}'"
 unzip -q -j -d $gocd_home/$gocd_server_folder /root/go-server.zip
 echo "Setting ownership on '${gocd_home}/${gocd_server_folder}'"
 chown -R $gocd_user_name:$gocd_group_name $gocd_home
-echo "Cleaning up '${gocd_server_folder}'"
-find $gocd_home/$gocd_server_folder/bin/*.bat -type f -exec rm {} \;
 echo "Checking plugin folder"
 if [ ! -d $gocd_home/$gocd_server_folder/plugins/external/ ]; then
     echo "Creating plugin folder"
@@ -16,6 +18,7 @@ echo "Copying plugins"
 cd $gocd_home/$gocd_server_folder/plugins/external/
 for plugin in $plugins
 do
+    echo Fetching basename $plugin
     fetch $plugin -o $gocd_home/$gocd_server_folder/plugins/external/
 done
 cd -
