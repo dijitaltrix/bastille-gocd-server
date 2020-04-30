@@ -1,1 +1,22 @@
-. ./template.conf
+#
+# These are the template variables for the server install
+# Change them to suit your requirements
+#
+
+# Set to desired version
+gocd_version="20.3.0-11530"
+# Set to desired number of agents
+gocd_agents=3
+# Set gocd user name
+gocd_user_name="gocd"
+# Set gocd group name
+gocd_group_name="gocd"
+# Set gocd user id
+gocd_user_id=6039
+# Set gocd group id
+gocd_group_id=6039
+# Set gocd user home folder
+gocd_home="/usr/local/${gocd_user_name}"
+# Specify the urls to plugins, one url per line.
+# They will be downloaded to server/plugins/external
+plugins = "https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases/download/v2.0.2/gocd-slack-notifier-2.0.2.jar -o /usr/local/gocd/server/plugins/external/gocd-slack-notifier-2.0.2.jar"
