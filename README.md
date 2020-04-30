@@ -8,7 +8,7 @@ Fetch and apply this template with:
 
 ```shell
 bastille bootstrap https://github.com/dijitaltrix/gocd-server
-bastille template TARGET /usr/local/bastille/templates/gocd-server
+bastille template TARGET dijitaltrix/gocd-server
 ```
 
 ## Description

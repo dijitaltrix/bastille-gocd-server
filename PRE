@@ -19,10 +19,14 @@ gocd_group_id=6039
 gocd_home="/usr/local/${gocd_user_name}"
 # Specify the urls to plugins, one url per line.
 # They will be downloaded to server/plugins/external
-plugins = "https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases/download/v2.0.2/gocd-slack-notifier-2.0.2.jar -o /usr/local/gocd/server/plugins/external/gocd-slack-notifier-2.0.2.jar"
+plugins="https://github.com/ashwanthkumar/gocd-slack-build-notifier/releases/download/v2.0.2/gocd-slack-notifier-2.0.2.jar -o /usr/local/gocd/server/plugins/external/gocd-slack-notifier-2.0.2.jar"
 
 # Add GoCD user and group first
 
+# make home folder 
+if [ ! -d $gocd_home ]; then
+    mkdir $gocd_home
+fi
 # add group
 echo "Creating group '${gocd_group_name}' with id '${gocd_group_id}'"
 pw groupadd -q -n $gocd_group_name -g $gocd_group_id
