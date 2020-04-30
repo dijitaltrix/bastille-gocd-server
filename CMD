@@ -1,3 +1,4 @@
+#!/bin/sh
 # GoCD Server Install
 
 echo "Fetching server install"
