@@ -1,4 +1,7 @@
 #!/bin/sh
+
+. ./template.conf
+
 if [ "${gocd_home}" == "" ]; then
     echo "Cannot find required variables"
     exit
