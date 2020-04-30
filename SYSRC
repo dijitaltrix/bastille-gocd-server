@@ -1,1 +1,1 @@
-go_server_enable=YES
+gocd_server_enable=YES

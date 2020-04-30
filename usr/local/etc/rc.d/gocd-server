@@ -2,28 +2,28 @@
 
 . /etc/rc.subr
 
-name="go-server"
-rcvar="go_server_enable"
+name="gocd-server"
+rcvar="gocd_server_enable"
 
 : ${go_server_enable:=NO}
 : ${go_server_user:=gocd}
 : ${go_server_group:=gocd}
 : ${go_server_chdir=/usr/local/gocd}
 
-start_cmd="go_server_start"
-stop_cmd="go_server_stop"
-restart_cmd="go_server_restart"
+start_cmd="gocd_server_start"
+stop_cmd="gocd_server_stop"
+restart_cmd="gocd_server_restart"
 
 
-go_server_start()
+gocd_server_start()
 {
     su gocd /usr/local/gocd/server/bin/go-server start
 }
-go_server_stop()
+gocd_server_stop()
 {
     /usr/local/gocd/server/bin/go-server stop
 }
-go_server_restart()
+gocd_server_restart()
 {
     su gocd /usr/local/gocd/server/bin/go-server restart
 }
