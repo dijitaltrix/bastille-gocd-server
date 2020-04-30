@@ -1,8 +1,7 @@
 ## GoCD Server
 Bastille Template: gocd-server
 
-This is a 'template' for a BastilleBSD container.
-Similar to Docker containers it allows running lightweight 'VMs' on FreeBSD.
+This is a BastilleBSD 'template' container. Similar to Docker containers it allows running lightweight 'VMs' on FreeBSD.
 
 Fetch and apply this template with:
 

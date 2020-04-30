@@ -1,7 +1,5 @@
 # GoCD Server Install
 
-. ./template.conf
-
 echo "Fetching server install"
 fetch https://download.gocd.org/binaries/$go_version/generic/go-server-$go_version.zip -o /root/go-server.zip
 
