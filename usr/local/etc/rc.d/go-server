@@ -1,0 +1,32 @@
+#!/bin/sh
+
+. /etc/rc.subr
+
+name="go-server"
+rcvar="go_server_enable"
+
+: ${go_server_enable:=NO}
+: ${go_server_user:=gocd}
+: ${go_server_group:=gocd}
+: ${go_server_chdir=/usr/local/gocd}
+
+start_cmd="go_server_start"
+stop_cmd="go_server_stop"
+restart_cmd="go_server_restart"
+
+
+go_server_start()
+{
+    su gocd /usr/local/gocd/server/bin/go-server start
+}
+go_server_stop()
+{
+    /usr/local/gocd/server/bin/go-server stop
+}
+go_server_restart()
+{
+    su gocd /usr/local/gocd/server/bin/go-server restart
+}
+
+load_rc_config $name
+run_rc_command "$1"

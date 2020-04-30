@@ -1,0 +1,2 @@
+# include template variables from current directory
+. ./template.conf
