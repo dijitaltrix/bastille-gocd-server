@@ -18,3 +18,13 @@ for os in $oss
 do
     find $gocd_home/$gocd_server_folder/wrapper/*$os* -type f -exec rm {} \;
 done
+
+if [ ! -d $gocd_home/$gocd_server_folder/plugins/external/ ]; then
+    mkdir -p $gocd_home/$gocd_server_folder/plugins/external/
+fi
+cd $gocd_home/$gocd_server_folder/plugins/external/
+for plugin in $plugins
+do
+    fetch $plugin -o $gocd_home/$gocd_server_folder/plugins/external/
+done
+cd -
