@@ -5,8 +5,6 @@
 
 # Set to desired version
 gocd_version="20.3.0-11530"
-# Set to desired number of agents
-gocd_agents=3
 # Set gocd user name
 gocd_user_name="gocd"
 # Set gocd group name
