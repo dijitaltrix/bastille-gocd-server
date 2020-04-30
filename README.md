@@ -13,8 +13,7 @@ bastille template TARGET dijitaltrix/gocd-server
 ## Description
 A 'GoCD Server' assigns tasks a 'GoCD Agent'.
 
-By default this template will install the go-server under '/usr/local/gocd' and run as the 'gocd' user.
+By default this template will install the 'GoCD Server' under '/usr/local/gocd' and run as the 'gocd' user.
 
-You can download a template for your GoCD agents here: 
+You can download a template for your 'GoCD Agents' here: 
 https://github.com/dijitaltrix/gocd-agent
-
