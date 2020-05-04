@@ -17,15 +17,15 @@ restart_cmd="gocd_server_restart"
 
 gocd_server_start()
 {
-    su gocd /usr/local/gocd/server/bin/go-server start
+  su gocd /usr/local/gocd/server/bin/go-server start
 }
 gocd_server_stop()
 {
-    /usr/local/gocd/server/bin/go-server stop
+  /usr/local/gocd/server/bin/go-server stop
 }
 gocd_server_restart()
 {
-    su gocd /usr/local/gocd/server/bin/go-server restart
+  su gocd /usr/local/gocd/server/bin/go-server restart
 }
 
 load_rc_config $name
